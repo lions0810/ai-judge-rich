@@ -15,13 +15,27 @@
 #
 # Outside the grader's container, MAKEFUN_OUTPUT_DIR stands in for /output:
 #   mkdir -p out && MAKEFUN_OUTPUT_DIR=out python3 main.py
+#
+# The plan's structure: one offer only (a finished site on the owner's own domain, plus a monthly fee to keep
+# it updated), built before asking rather than pitched, and priced to keep (the setup fee is never discounted).
+# Each niche carries its own kill rule: 200 messages sent, under 1% replies, drop it and take the next trade.
 
 import os
 
 OUTPUT_DIR = os.environ.get("MAKEFUN_OUTPUT_DIR", "/output")
 
-PLAN = (
-    "Build the website before you ask. Days 1-2: find 400 local trades and clinics (plumbers, dentists, roofers, salons) in US/UK/AU cities that have a Google listing with good reviews but no website. For each one, generate a finished one-page site from its own photos, reviews, services and hours, live on a free subdomain carrying the business's name. Days 3-30: message 40 owners a day the live link: 'Your website is already built and online. $149 puts it on your own domain; $39 a month keeps it updated and your Google profile fresh.' A finished site beats a pitch: at a cautious 2% close rate, 1,120 messages close about 22 owners, $3,278 in setup fees plus $858 a month recurring, against the $100 spent once on an email tool and one domain; hosting costs nothing. Work each niche until 200 messages: under 1% replies, drop it and take the next trade. Never discount the setup fee; a waiting list beats a cheaper price."
+# The plan is assembled from its sentences, joined with single spaces, so each sentence can be read and
+# revised on its own line; the joined text is exactly the plan the judge reads.
+PLAN = " ".join(
+    [
+        "Build the website before you ask.",
+        "Days 1-2: find 400 local trades and clinics (plumbers, dentists, roofers, salons) in US/UK/AU cities that have a Google listing with good reviews but no website.",
+        "For each one, generate a finished one-page site from its own photos, reviews, services and hours, live on a free subdomain carrying the business's name.",
+        "Days 3-30: message 40 owners a day the live link: 'Your website is already built and online. $149 puts it on your own domain; $39 a month keeps it updated and your Google profile fresh.'",
+        "A finished site beats a pitch: at a cautious 2% close rate, 1,120 messages close about 22 owners, $3,278 in setup fees plus $858 a month recurring, against the $100 spent once on an email tool and one domain; hosting costs nothing.",
+        "Work each niche until 200 messages: under 1% replies, drop it and take the next trade.",
+        "Never discount the setup fee; a waiting list beats a cheaper price.",
+    ]
 )
 
 # Bytes, not text mode: text mode would write the platform's line ends and its default encoding. No extra
